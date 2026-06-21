@@ -407,9 +407,9 @@ def plot_boxplot(df: pd.DataFrame, save: bool = True):
     fig, ax = plt.subplots(figsize=(10, 6))
     data_to_plot = [df["点赞数"].values, df["评论数"].values, df["转发数"].values]
     bp = ax.boxplot(data_to_plot, patch_artist=True, widths=0.5,
-                    labels=["点赞数", "评论数", "转发数"],
                     showfliers=True,  # 显示离群值
                     medianprops={"color": "red", "linewidth": 2})
+    ax.set_xticklabels(["点赞数", "评论数", "转发数"])
 
     colors = ["#FF6B6B", "#4ECDC4", "#45B7D1"]
     for patch, color in zip(bp["boxes"], colors):
